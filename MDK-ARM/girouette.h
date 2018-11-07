@@ -2,9 +2,9 @@
 #define __girouetteH
 #include "stm32f1xx_hal.h"
 
-void interface_encoder_mode();
+void interface_encoder_mode(void);
 
-int lire_angle();
+int lire_angle(void);
 
 
 #endif
