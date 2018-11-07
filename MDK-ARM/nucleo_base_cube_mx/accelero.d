@@ -1,4 +1,4 @@
-nucleo_base_cube_mx\accelero.o: Accelero.c
+nucleo_base_cube_mx\accelero.o: ..\Src\Accelero.c
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 nucleo_base_cube_mx\accelero.o: ../Inc/stm32f1xx_hal_conf.h
 nucleo_base_cube_mx\accelero.o: ../Inc/main.h
@@ -26,7 +26,4 @@ nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-nucleo_base_cube_mx\accelero.o: Accelero.h
-nucleo_base_cube_mx\accelero.o: ../Inc/MyGPIO.h
-nucleo_base_cube_mx\accelero.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
-nucleo_base_cube_mx\accelero.o: .\RTE\_Simu_nucleo_base_cube_mx\RTE_Components.h
+nucleo_base_cube_mx\accelero.o: ../Inc/Accelero.h

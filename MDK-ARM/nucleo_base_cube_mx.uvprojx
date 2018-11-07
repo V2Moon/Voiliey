@@ -648,12 +648,7 @@
             <File>
               <FileName>Accelero.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Accelero.c</FilePath>
-            </File>
-            <File>
-              <FileName>Accelero.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Accelero.h</FilePath>
+              <FilePath>..\Src\Accelero.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1303,12 +1298,7 @@
             <File>
               <FileName>Accelero.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Accelero.c</FilePath>
-            </File>
-            <File>
-              <FileName>Accelero.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Accelero.h</FilePath>
+              <FilePath>..\Src\Accelero.c</FilePath>
             </File>
           </Files>
         </Group>

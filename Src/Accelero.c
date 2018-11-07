@@ -1,20 +1,20 @@
 #include "stm32f1xx_hal.h"
 #include "Accelero.h"
-#include "MyGPIO.h"
+//#include "MyGPIO.h"
 
 //Le PIN pour accéléro - X
-GPIO_Struct_TypeDef *AcceleroGPIOX;
-AcceleroGPIOX[1] = GPIOC;//, IN_PIN, INPUT_FLOATING};
-AcceleroGPIOX[2] = 10;
+//GPIO_Struct_TypeDef *AcceleroGPIOX;
+//AcceleroGPIOX[1] = GPIOC;//, IN_PIN, INPUT_FLOATING};
+//AcceleroGPIOX[2] = 10;
 
-GPIO_Struct_TypeDef *AcceleroGPIOY;
-AcceleroGPIOY[1] = GPIOC;//, IN_PIN, INPUT_FLOATING};
-AcceleroGPIOY[2] = 11;
+//GPIO_Struct_TypeDef *AcceleroGPIOY;
+//AcceleroGPIOY[1] = GPIOC;//, IN_PIN, INPUT_FLOATING};
+//AcceleroGPIOY[2] = 11;
 
 //Activer horloge locale des 2 ADC
 void init_Accelero (void)
 {
-	GPIO_Init(AcceleroGPIO);
+	//GPIO_Init(AcceleroGPIO);
 
 }
 
