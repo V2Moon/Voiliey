@@ -39,6 +39,7 @@
 #include "main.h"
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
+#include "Accelero.h"
 
 /* USER CODE BEGIN Includes */
 

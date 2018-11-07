@@ -643,6 +643,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Accéléro</GroupName>
+          <Files>
+            <File>
+              <FileName>Accelero.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Accelero.c</FilePath>
+            </File>
+            <File>
+              <FileName>Accelero.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Accelero.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -1279,6 +1294,21 @@
               <FileName>stm32f1xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Accéléro</GroupName>
+          <Files>
+            <File>
+              <FileName>Accelero.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Accelero.c</FilePath>
+            </File>
+            <File>
+              <FileName>Accelero.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Accelero.h</FilePath>
             </File>
           </Files>
         </Group>
