@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include "stm32f10x.h"
 #include "stm32f1xx_hal.h"
-//#include "check_battery.h"
+#include "check_battery.h"
 
 /*=================================================================================
-Autor : NIRINA Carrel
+Autor : Carrel Nirina
 Software : Keil uVision 5
 Processor : STM32F103RB
 ===================================================================================*/

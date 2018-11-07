@@ -38,7 +38,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_hal.h"
-#include "gpio.h"
+
 
 /* USER CODE BEGIN Includes */
 
@@ -87,7 +87,7 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
+
 
   /* USER CODE BEGIN 2 */
 
