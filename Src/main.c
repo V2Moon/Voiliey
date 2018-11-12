@@ -39,9 +39,10 @@
 #include "main.h"
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
-#include "Timer_Systick.h"
 
 /* USER CODE BEGIN Includes */
+#include "Reception_RF.h"
+#include "Control_Moteur_CC.h"
 
 /* USER CODE END Includes */
 
@@ -91,7 +92,42 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
+	
+	TIM_HandleTypeDef TIM4_config;
+	TIM4_config.Instance = TIM4;
+	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
+	la définition temporel doit être assez grande pour qu'on puisse contrôler assez finement le moteur*/
+	
+	TIM4_config.Init.Prescaler=29;
+	TIM4_config.Init.Period=47999;
+	
+	initialiser_input_PWM_TIM(&TIM4_config);
+	
+	//Configuration des pins pour le contrôle du moteur
+	
+	GPIO_InitTypeDef PA1;
+	PA1.Mode = GPIO_MODE_AF_PP;
+	PA1.Pin  = GPIO_PIN_1;
+	PA1.Speed = GPIO_SPEED_FREQ_HIGH;
+	
+	GPIO_InitTypeDef PA2;
+	//PA2.Mode = GPIO ;
+	PA2.Pin = GPIO_PIN_2;
+	PA2.Speed = GPIO_SPEED_FREQ_HIGH ;
+		
+	
+	TIM_HandleTypeDef timer;
+	timer.Init.Prescaler = 0;
+	timer.Init.Period = 719;
+	timer.Instance = TIM2;
+	timer.Init.CounterMode = TIM_COUNTERMODE_UP;
+	timer.Init.RepetitionCounter=0;
 
+	init_config_moteur(&PA1, &PA2, &timer);
+	
+	
+	
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */

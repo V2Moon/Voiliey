@@ -400,6 +400,16 @@
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
             </File>
+            <File>
+              <FileName>Control_Moteur_CC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Control_Moteur_CC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Reception_RF.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Reception_RF.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1039,6 +1049,16 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
+            </File>
+            <File>
+              <FileName>Control_Moteur_CC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Control_Moteur_CC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Reception_RF.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Reception_RF.c</FilePath>
             </File>
           </Files>
         </Group>
