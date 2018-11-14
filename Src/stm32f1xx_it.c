@@ -34,6 +34,7 @@
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
+#include "Accelero.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -79,6 +80,11 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+void ADC1_IRQHandler(void)
+{
+	HAL_ADC_IRQHandler(ADC_Accel_Init);
 }
 
 /* USER CODE BEGIN 1 */

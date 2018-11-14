@@ -27,3 +27,4 @@ nucleo_base_cube_mx\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 nucleo_base_cube_mx\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 nucleo_base_cube_mx\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 nucleo_base_cube_mx\stm32f1xx_it.o: ../Inc/stm32f1xx_it.h
+nucleo_base_cube_mx\stm32f1xx_it.o: ../Inc/Accelero.h
