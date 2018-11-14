@@ -92,16 +92,18 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
+	int t_periode;
+	int t_cycle;
 	
-	TIM_HandleTypeDef TIM4_config;
-	TIM4_config.Instance = TIM4;
+	public TIM_HandleTypeDef htim4;
+	htim4.Instance = TIM4;
 	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
 	la définition temporel doit être assez grande pour qu'on puisse contrôler assez finement le moteur*/
 	
-	TIM4_config.Init.Prescaler=29;
-	TIM4_config.Init.Period=47999;
+	htim4.Init.Prescaler=29;
+	htim4.Init.Period=47999;
 	
-	initialiser_input_PWM_TIM(&TIM4_config);
+	initialiser_input_PWM_TIM(&htim4);
 	
 	//Configuration des pins pour le contrôle du moteur
 	
@@ -111,19 +113,21 @@ int main(void)
 	PA1.Speed = GPIO_SPEED_FREQ_HIGH;
 	
 	GPIO_InitTypeDef PA2;
-	//PA2.Mode = GPIO ;
+	PA2.Mode = GPIO_MODE_OUTPUT_PP ;
 	PA2.Pin = GPIO_PIN_2;
 	PA2.Speed = GPIO_SPEED_FREQ_HIGH ;
+	
+	TIM_OC_InitTypeDef tim_OC;
 		
 	
-	TIM_HandleTypeDef timer;
-	timer.Init.Prescaler = 0;
-	timer.Init.Period = 719;
-	timer.Instance = TIM2;
-	timer.Init.CounterMode = TIM_COUNTERMODE_UP;
-	timer.Init.RepetitionCounter=0;
+	public TIM_HandleTypeDef htim2;
+	htim2.Init.Prescaler = 0;
+	htim2.Init.Period = 719;
+	htim2.Instance = TIM2;
+	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim2.Init.RepetitionCounter=0;
 
-	init_config_moteur(&PA1, &PA2, &timer);
+	//init_config_moteur(&PA1, &PA2, &htim2, &tim_OC);
 	
 	
 	
@@ -134,10 +138,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  /* USER CODE END WHILE */
-
-  /* USER CODE BEGIN 3 */
-
+		/*if (A<0.95ms)
+		{
+			set_sens_moteur(PA2, GPIO_BIT_RESET);
+		}
+		else if (A>1.05ms)
+		{
+			set_sens_moteur(PA2, GPIO_BIT_SET);
+		}
+		set_vitesse_moteur(vitesse, TIM2, tim_OC);
+		*/
+		
   }
   /* USER CODE END 3 */
 

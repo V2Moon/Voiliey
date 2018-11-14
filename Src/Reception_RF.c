@@ -19,6 +19,7 @@ void initialiser_input_PWM_TIM(TIM_HandleTypeDef *timer_config)
 	Ch2_Config.ICPolarity = TIM_ICPOLARITY_FALLING;
 	Ch1_Config.ICPrescaler = TIM_ICPSC_DIV1;
 	Ch2_Config.ICPrescaler = TIM_ICPSC_DIV1;
+	Ch1_Config.ICSelection = TIM_ICSELECTION_DIRECTTI;
 	Ch2_Config.ICSelection = TIM_ICSELECTION_INDIRECTTI;
 	
 	HAL_TIM_IC_MspInit(timer_config);
