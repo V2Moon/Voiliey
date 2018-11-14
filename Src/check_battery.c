@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include "stm32f1xx_hal.h"
 #include "check_battery.h"
 
 /*=================================================================================
@@ -30,8 +28,9 @@ void init_PC2(void){
 /*=================================================================================
 Initialize the ADC1 channel 12
 ===================================================================================*/
-void init_ADC1(void){
+ADC_HandleTypeDef* init_ADC1(void){
 	//init ADC
+	init_PC2();
 	ADC_InitTypeDef ADC_InitStruct;
 	ADC_InitStruct.ContinuousConvMode = ENABLE;
 	ADC_InitStruct.NbrOfConversion = 1;
@@ -40,10 +39,27 @@ void init_ADC1(void){
 	ADC_InitChannel.Channel = ADC_CHANNEL_12;
 	ADC_InitChannel.Rank = ADC_REGULAR_RANK_1;
 	//init Handle ADC
-	ADC_HandleTypeDef ADC_InitHandle;
-	ADC_InitHandle.Instance = ADC1;
-	ADC_InitHandle.Init = ADC_InitStruct;
+	ADC_HandleTypeDef* ADC_InitHandle;
+	ADC_InitHandle->Instance = ADC1;
+	ADC_InitHandle->Init = ADC_InitStruct;
 	//CALL HAL FUNCTION FOR INIT
-	HAL_ADC_Init(&ADC_InitHandle);
-	HAL_ADC_ConfigChannel(&ADC_InitHandle,&ADC_InitChannel);
+	HAL_ADC_Init(ADC_InitHandle);
+	HAL_ADC_ConfigChannel(ADC_InitHandle,&ADC_InitChannel);
+	HAL_ADC_Start(ADC_InitHandle);
+	HAL_ADC_PollForConversion(ADC_InitHandle, 5);
+	return(ADC_InitHandle);
 }
+
+/*=================================================================================
+Read the level of the battery
+===================================================================================*/
+unsigned int read_battery(ADC_HandleTypeDef* hadc){
+	unsigned int a = HAL_ADC_GetValue(hadc);
+	printf("Debug read level batterie : %d",a); 
+	return a;
+}
+
+
+
+
+

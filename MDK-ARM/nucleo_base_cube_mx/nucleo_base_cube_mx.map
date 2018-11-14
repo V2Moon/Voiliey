@@ -159,6 +159,8 @@ Section Cross References
     check_battery.o(i.init_ADC1) refers to memcpya.o(.text) for __aeabi_memcpy4
     check_battery.o(i.init_ADC1) refers to stm32f1xx_hal_adc.o(i.HAL_ADC_Init) for HAL_ADC_Init
     check_battery.o(i.init_ADC1) refers to stm32f1xx_hal_adc.o(i.HAL_ADC_ConfigChannel) for HAL_ADC_ConfigChannel
+    check_battery.o(i.init_ADC1) refers to stm32f1xx_hal_adc.o(i.HAL_ADC_Start) for HAL_ADC_Start
+    check_battery.o(i.init_ADC1) refers to stm32f1xx_hal_adc.o(i.HAL_ADC_PollForConversion) for HAL_ADC_PollForConversion
     check_battery.o(i.init_PC2) refers to stm32f1xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
@@ -469,10 +471,10 @@ Removing Unused input sections from the image.
     Removing check_battery.o(.rev16_text), (4 bytes).
     Removing check_battery.o(.revsh_text), (4 bytes).
     Removing check_battery.o(.rrx_text), (6 bytes).
-    Removing check_battery.o(i.init_ADC1), (52 bytes).
+    Removing check_battery.o(i.init_ADC1), (68 bytes).
     Removing check_battery.o(i.init_PC2), (28 bytes).
 
-290 unused section(s) (total 13072 bytes) removed from the image.
+290 unused section(s) (total 13088 bytes) removed from the image.
 
 ==============================================================================
 

@@ -40,8 +40,9 @@
 #include "stm32f1xx_hal.h"
 
 
-/* USER CODE BEGIN Includes */
 
+/* USER CODE BEGIN Includes */
+#include "check_battery.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -65,7 +66,7 @@ void SystemClock_Config(void);
 
 int main(void)
 {
-
+	unsigned int a;
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -83,11 +84,11 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+		
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-
+	ADC_HandleTypeDef* hadc = init_ADC1();
 
   /* USER CODE BEGIN 2 */
 
@@ -100,7 +101,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-
+	a = read_battery(hadc);
   }
   /* USER CODE END 3 */
 
