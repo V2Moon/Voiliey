@@ -1,4 +1,5 @@
 nucleo_base_cube_mx\check_battery.o: ..\Src\check_battery.c
+nucleo_base_cube_mx\check_battery.o: ..\Src\check_battery.h
 nucleo_base_cube_mx\check_battery.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 nucleo_base_cube_mx\check_battery.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 nucleo_base_cube_mx\check_battery.o: ../Inc/stm32f1xx_hal_conf.h
@@ -26,4 +27,3 @@ nucleo_base_cube_mx\check_battery.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1
 nucleo_base_cube_mx\check_battery.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 nucleo_base_cube_mx\check_battery.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 nucleo_base_cube_mx\check_battery.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-nucleo_base_cube_mx\check_battery.o: ..\Src\check_battery.h

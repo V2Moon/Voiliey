@@ -82,7 +82,8 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-
+	__ADC1_CLK_ENABLE();
+	__HAL_RCC_GPIOC_CLK_ENABLE();
   /* USER CODE BEGIN SysInit */
 		
   /* USER CODE END SysInit */
@@ -101,7 +102,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-	a = read_battery(hadc);
+		a = read_battery(hadc);
   }
   /* USER CODE END 3 */
 
