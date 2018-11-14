@@ -39,7 +39,6 @@ ADC_HandleTypeDef* init_ADC1(void){
 	ADC_InitChannel.Channel = ADC_CHANNEL_12;
 	ADC_InitChannel.Rank = ADC_REGULAR_RANK_1;
 	//init Handle ADC
-	
 	ADC_InitHandle.Instance = ADC1;
 	ADC_InitHandle.Init = ADC_InitStruct;
 	//CALL HAL FUNCTION FOR INIT
