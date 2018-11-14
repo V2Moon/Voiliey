@@ -45,8 +45,7 @@ ADC_HandleTypeDef* init_ADC1(void){
 	//CALL HAL FUNCTION FOR INIT
 	HAL_ADC_Init(ADC_InitHandle);
 	HAL_ADC_ConfigChannel(ADC_InitHandle,&ADC_InitChannel);
-	HAL_ADC_Start(ADC_InitHandle);
-	HAL_ADC_PollForConversion(ADC_InitHandle, 5);
+	
 	return(ADC_InitHandle);
 }
 
@@ -54,8 +53,10 @@ ADC_HandleTypeDef* init_ADC1(void){
 Read the level of the battery
 ===================================================================================*/
 unsigned int read_battery(ADC_HandleTypeDef* hadc){
+	HAL_ADC_Start(hadc);
+	HAL_ADC_PollForConversion(hadc, 5);
 	unsigned int a = HAL_ADC_GetValue(hadc);
-	printf("Debug read level batterie : %d",a); 
+	HAL_ADC_Stop(hadc);
 	return a;
 }
 
