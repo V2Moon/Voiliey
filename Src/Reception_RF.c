@@ -32,6 +32,8 @@ void initialiser_input_PWM_TIM(TIM_HandleTypeDef *timer_config)
 	HAL_TIM_SlaveConfigSynchronization(timer_config, &Tim_trigger);
 	HAL_TIM_IC_Start(timer_config, TIM_CHANNEL_1);
 	HAL_TIM_IC_Start(timer_config, TIM_CHANNEL_2);
-	
+	HAL_TIM_IC_Start_IT(timer_config, TIM_CHANNEL_1);
+	HAL_TIM_IC_Start_IT(timer_config, TIM_CHANNEL_2);
+	HAL_NVIC_EnableIRQ(TIM4_IRQn);
 
 }

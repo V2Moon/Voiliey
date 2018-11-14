@@ -24,8 +24,10 @@ void set_sens_moteur(GPIO_InitTypeDef * Pin_Sens, GPIO_PinState sens)
 	HAL_GPIO_WritePin(GPIOA, Pin_Sens->Pin, sens); 
 }
 
-void set_vitesse_moteur(float vitesse, TIM_OC_InitTypeDef * tim_OC, TIM_HandleTypeDef *timer)
+void set_vitesse_moteur(float rapport_cyclique, TIM_OC_InitTypeDef * tim_OC, TIM_HandleTypeDef *timer)
 {
+	int vitesse = __fabs(rapport_cyclique-0.115)/0.18;
 	tim_OC->Pulse = (vitesse*720)-1;
 	HAL_TIM_PWM_ConfigChannel(timer, tim_OC, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start(timer, TIM_CHANNEL_2);
 }

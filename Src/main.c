@@ -62,6 +62,12 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+float t_periode;
+float t_cycle;
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim4;
+float vitesse;
+float rapport_cyclique;
 
 /* USER CODE END 0 */
 
@@ -92,10 +98,8 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
-	int t_periode;
-	int t_cycle;
 	
-	public TIM_HandleTypeDef htim4;
+	
 	htim4.Instance = TIM4;
 	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
 	la définition temporel doit être assez grande pour qu'on puisse contrôler assez finement le moteur*/
@@ -120,17 +124,16 @@ int main(void)
 	TIM_OC_InitTypeDef tim_OC;
 		
 	
-	public TIM_HandleTypeDef htim2;
+
 	htim2.Init.Prescaler = 0;
 	htim2.Init.Period = 719;
 	htim2.Instance = TIM2;
 	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
 	htim2.Init.RepetitionCounter=0;
 
-	//init_config_moteur(&PA1, &PA2, &htim2, &tim_OC);
+	init_config_moteur(&PA1, &PA2, &htim2, &tim_OC);
 	
-	
-	
+
 	
   /* USER CODE END 2 */
 
@@ -138,16 +141,35 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		/*if (A<0.95ms)
+		if (t_periode != 0)
 		{
-			set_sens_moteur(PA2, GPIO_BIT_RESET);
-		}
-		else if (A>1.05ms)
+		rapport_cyclique = t_cycle/t_periode;
+
+		if (rapport_cyclique<0.1140)
 		{
-			set_sens_moteur(PA2, GPIO_BIT_SET);
+			set_sens_moteur(&PA2, GPIO_PIN_RESET);
+			vitesse = (-rapport_cyclique+0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+			
 		}
-		set_vitesse_moteur(vitesse, TIM2, tim_OC);
-		*/
+		else if (rapport_cyclique>0.1160)
+		{
+			set_sens_moteur(&PA2, GPIO_PIN_SET);
+			vitesse = (+rapport_cyclique-0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+		}
+		else
+		{
+			tim_OC.Pulse = 0;
+		}
+		
+		//set_vitesse_moteur(rapport_cyclique,&tim_OC,&htim2);
+			
+			HAL_TIM_PWM_ConfigChannel(&htim2, &tim_OC, TIM_CHANNEL_2);
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+		}
+		
+		
 		
   }
   /* USER CODE END 3 */
