@@ -39,6 +39,7 @@
 #include "main.h"
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
+#include "servomoteur.h"
 #include "Timer_Systick.h"
 
 /* USER CODE BEGIN Includes */
@@ -61,7 +62,10 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+TIM_OC_InitTypeDef tim_OC;
+TIM_HandleTypeDef htim1;
 
+GPIO_InitTypeDef PA8;
 /* USER CODE END 0 */
 
 int main(void)
@@ -77,7 +81,19 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+	
+		//pour la pin de la PWM du servomoteur
+	PA8.Mode =GPIO_MODE_AF_PP;
+	PA8.Pin = GPIO_PIN_8;
+	PA8.Speed =GPIO_SPEED_FREQ_HIGH;
+	
+		//reglage du timer 1 periode de 50Hz
+	htim1.Init.Prescaler =299;
+	htim1.Init.Period = 4799;
+	htim1.Instance = TIM1;
+	htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim1.Init.RepetitionCounter = 0;
+	
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -91,7 +107,7 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
-
+	config_PWM(&PA8,&tim_OC,&htim1);
   /* USER CODE END 2 */
 
   /* Infinite loop */

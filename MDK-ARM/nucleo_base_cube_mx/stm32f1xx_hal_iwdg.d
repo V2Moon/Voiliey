@@ -26,3 +26,5 @@ nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/st
 nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+nucleo_base_cube_mx\stm32f1xx_hal_iwdg.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
