@@ -5,8 +5,7 @@
 	* Author 						 : Louna Vielfaure
 	*	Last update				 : 20/11/18
   ******************************************************************************
-	*	Reste à faire : * Configurer l'accéléromètre
-	*									* Réaliser la conversion des données
+	*	Reste à faire : * Réaliser la conversion des données
 	*									* Mettre en forme tout joliment
 	*
 	*	Pbs : * Comment gérér les variables avec l'interruption (doivent être
