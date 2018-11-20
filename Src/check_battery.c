@@ -33,7 +33,7 @@ void init_ADC1(ADC_HandleTypeDef* ADC_InitHandle){
 	init_PC2();
 	ADC_InitTypeDef ADC_InitStruct;
 	ADC_InitStruct.ContinuousConvMode = ENABLE;
-	ADC_InitStruct.NbrOfConversion = 1;
+	ADC_InitStruct.NbrOfConversion = 16;
 	//init Channel 12
 	ADC_ChannelConfTypeDef ADC_InitChannel;
 	ADC_InitChannel.Channel = ADC_CHANNEL_12;
@@ -50,9 +50,10 @@ void init_ADC1(ADC_HandleTypeDef* ADC_InitHandle){
 Read the level of the battery
 ===================================================================================*/
 unsigned int read_battery(ADC_HandleTypeDef* hadc){
+	uint32_t a;
 	HAL_ADC_Start(hadc);
 	HAL_ADC_PollForConversion(hadc, 5);
-	unsigned int a = HAL_ADC_GetValue(hadc);
+	a = HAL_ADC_GetValue(hadc);
 	HAL_ADC_Stop(hadc);
 	return a;
 }

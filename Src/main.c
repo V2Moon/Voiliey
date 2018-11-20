@@ -61,12 +61,12 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-
+uint32_t buffalo;
 /* USER CODE END 0 */
 
 int main(void)
 {
-	unsigned int read;
+	
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -77,7 +77,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+	
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -95,7 +95,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-
+	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -103,8 +103,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-		read = read_battery(&hadc);
-		printf("Valeur lue : %u",read);
+		buffalo = read_battery(&hadc);
   }
   /* USER CODE END 3 */
 
