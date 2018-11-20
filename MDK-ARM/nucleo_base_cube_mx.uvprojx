@@ -401,11 +401,6 @@
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
             </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\girouette.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -655,16 +650,6 @@
               <FileName>girouette.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\girouette.c</FilePath>
-            </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\girouette.h</FilePath>
-            </File>
-            <File>
-              <FileName>test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\test.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -978,7 +963,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -1067,11 +1052,6 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
-            </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\girouette.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1322,16 +1302,6 @@
               <FileName>girouette.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\girouette.c</FilePath>
-            </File>
-            <File>
-              <FileName>girouette.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\girouette.h</FilePath>
-            </File>
-            <File>
-              <FileName>test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\test.c</FilePath>
             </File>
           </Files>
         </Group>

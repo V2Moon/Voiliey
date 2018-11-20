@@ -6,5 +6,5 @@ void interface_encoder_mode(void);
 
 int lire_angle(void);
 
-
+void connect_GPIO (void);
 #endif

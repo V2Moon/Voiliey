@@ -2,6 +2,37 @@
 #include "girouette.h"
 #include "gpio.h"
 
+void connect_GPIO ()	{
+	GPIO_InitTypeDef GPIO_InitStruct;
+	
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+ 
+	
+		GPIO_InitStruct.Pin = GPIO_PIN_7;
+	GPIO_InitStruct.Mode = GPIO_MODE_AF_INPUT;
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	
+	GPIO_InitStruct.Pin = GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT ;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	GPIO_InitStruct.Pin = GPIO_PIN_5;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  //GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+
+}
+
+
+
+
 void interface_encoder_mode() {
 
 	TIM3->CCER  &= ~(0x0011) ; /*mise à 0 de CC1E et CC2E pour pouvoir écrire dans CC1S et CC2S */
@@ -32,7 +63,7 @@ void interface_encoder_mode() {
 	
 
 
-
+	TIM3->ARR = 0x05A0;
 	TIM3->CR1 |= 0x0001 ; // CEN =1 activer le counter
 }
 
