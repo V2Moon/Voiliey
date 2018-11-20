@@ -324,6 +324,7 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
@@ -639,6 +640,21 @@
               <FileName>stm32f1xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>servomoteur</GroupName>
+          <Files>
+            <File>
+              <FileName>servomoteur.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\servomoteur.c</FilePath>
+            </File>
+            <File>
+              <FileName>servomoteur.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\servomoteur.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -964,6 +980,7 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
@@ -1279,6 +1296,21 @@
               <FileName>stm32f1xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>servomoteur</GroupName>
+          <Files>
+            <File>
+              <FileName>servomoteur.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\servomoteur.c</FilePath>
+            </File>
+            <File>
+              <FileName>servomoteur.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\servomoteur.h</FilePath>
             </File>
           </Files>
         </Group>
