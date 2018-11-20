@@ -46,7 +46,6 @@
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
-	ADC_InitTypeDef ADC_Accel_Init; // Variable globale ADC pour l'accéléromètre
 	
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/

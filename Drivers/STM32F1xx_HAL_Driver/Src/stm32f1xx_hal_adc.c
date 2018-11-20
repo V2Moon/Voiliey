@@ -1590,6 +1590,8 @@ void HAL_ADC_IRQHandler(ADC_HandleTypeDef* hadc)
   {
     if(__HAL_ADC_GET_FLAG(hadc, ADC_FLAG_AWD))
     {
+			// L'interruption s'est levée !
+			//Il faut faire pencher le bateau dans le sens inverse !
       /* Set ADC state */
       SET_BIT(hadc->State, HAL_ADC_STATE_AWD1);
       

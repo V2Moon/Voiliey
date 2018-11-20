@@ -84,7 +84,7 @@ void EXTI15_10_IRQHandler(void)
 
 void ADC1_IRQHandler(void)
 {
-	HAL_ADC_IRQHandler(ADC_Accel_Init);
+	HAL_ADC_IRQHandler(&ADC_Accel_Handle);
 }
 
 /* USER CODE BEGIN 1 */

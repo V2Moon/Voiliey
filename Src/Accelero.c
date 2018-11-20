@@ -1,3 +1,21 @@
+/*
+  ******************************************************************************
+  * File Name          : Accelero.c
+  * Description        : This file manages the accelerometer
+	* Author 						 : Louna Vielfaure
+	*	Last update				 : 20/11/18
+  ******************************************************************************
+	*	Reste à faire : * Configurer l'accéléromètre
+	*									* Réaliser la conversion des données
+	*									* Mettre en forme tout joliment
+	*
+	*	Pbs : * Comment gérér les variables avec l'interruption (doivent être
+	*					passées en global ?) : ADC_Accel_Handle
+	*
+	*
+	******************************************************************************
+*/
+
 #include "stm32f1xx_hal.h"
 #include "Accelero.h"
 
@@ -26,6 +44,7 @@ void Init_Accelero (void)
 	__HAL_RCC_GPIOC_CLK_ENABLE();
 		
 //Configuration de l'ADC pour lire les données du capteur	
+	
 	//Activer PIN de l'ADC = PINX accéléro
 	GPIO_InitTypeDef GPIO_Accel_InitStruct;
   GPIO_Accel_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -39,12 +58,12 @@ void Init_Accelero (void)
 	
 	
 	//Paramètrage du Init ADC (utilisé dans ma struct )
-	//ADC_InitTypeDef ADC_Accel_Init; (Déclaré en variable globale au dessus du main)
+	ADC_InitTypeDef ADC_Accel_Init; 
 	ADC_Accel_Init.DataAlign=ADC_DATAALIGN_RIGHT;
 	ADC_Accel_Init.ScanConvMode = ADC_SCAN_DISABLE;
 			
 	//Paramètrage de la structure ADC Handle-> Utilise l'ADC_InitTypeDef
-	ADC_HandleTypeDef ADC_Accel_Handle;
+	ADC_HandleTypeDef ADC_Accel_Handle; // AAAAAAAH je le met où ???
 	ADC_Accel_Handle.Instance= ADC1;
 	ADC_Accel_Handle.Init = ADC_Accel_Init;	
 	HAL_ADC_Init(&ADC_Accel_Handle);	
@@ -69,14 +88,15 @@ void Init_Accelero (void)
 	HAL_ADC_AnalogWDGConfig(&ADC_Accel_Handle,&ADC_WDG_Conf);
 	
 //Configuration de l'IT de l'ADC lorsque l'on est à l'angle limite
+
 	//Config NVIC de l'ADC : activation IT globale de l'ADC dans le STM32
 	HAL_NVIC_EnableIRQ(ADC1_2_IRQn);
 			
 	//Priorité de l'IT
 	HAL_NVIC_SetPriority(ADC1_2_IRQn, Prio_Accel, Prio_Accel);
 	
-	//Configuration de l'IT de l'ADC : Insert HAL_ADC_IRQHandler() ADC1_IRQHandler()
-	//On veut que ça se remette droit
+	//Configuration de l'IT de l'ADC : Insert HAL_ADC_IRQHandler() in ADC1_IRQHandler()
+	//Modifier la fonction HAL_ADC_IRQHandler pour avoir l'effet voulu quand le bon flag est levé
 }
 
 
