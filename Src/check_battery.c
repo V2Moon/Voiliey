@@ -10,7 +10,7 @@ Processor : STM32F103RB
 Programs necessary for monitoring the battery of the project Voilier. When 
 the level of the battery is low, a message is send with RF sender.
 ===================================================================================*/
-ADC_HandleTypeDef ADC_InitHandle;
+
 
 /*=================================================================================
 Initialize the GPIOC 2 in Analog input
@@ -28,7 +28,7 @@ void init_PC2(void){
 /*=================================================================================
 Initialize the ADC1 channel 12
 ===================================================================================*/
-ADC_HandleTypeDef* init_ADC1(void){
+void init_ADC1(ADC_HandleTypeDef* ADC_InitHandle){
 	//init ADC
 	init_PC2();
 	ADC_InitTypeDef ADC_InitStruct;
@@ -39,12 +39,11 @@ ADC_HandleTypeDef* init_ADC1(void){
 	ADC_InitChannel.Channel = ADC_CHANNEL_12;
 	ADC_InitChannel.Rank = ADC_REGULAR_RANK_1;
 	//init Handle ADC
-	ADC_InitHandle.Instance = ADC1;
-	ADC_InitHandle.Init = ADC_InitStruct;
+	ADC_InitHandle->Instance = ADC1;
+	ADC_InitHandle->Init = ADC_InitStruct;
 	//CALL HAL FUNCTION FOR INIT
-	HAL_ADC_Init(&ADC_InitHandle);
-	HAL_ADC_ConfigChannel(&ADC_InitHandle,&ADC_InitChannel);
-	return(&ADC_InitHandle);
+	HAL_ADC_Init(ADC_InitHandle);
+	HAL_ADC_ConfigChannel(ADC_InitHandle,&ADC_InitChannel);
 }
 
 /*=================================================================================

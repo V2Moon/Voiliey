@@ -10,7 +10,7 @@ Processor : STM32F103RB
 ===================================================================================*/
 
 void init_PC2(void);
-ADC_HandleTypeDef* init_ADC1(void);
+void init_ADC1(ADC_HandleTypeDef* ADC_InitHandle);
 unsigned int read_battery(ADC_HandleTypeDef* hadc);
 
 #endif

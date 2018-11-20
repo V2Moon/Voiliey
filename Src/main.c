@@ -66,7 +66,7 @@ void SystemClock_Config(void);
 
 int main(void)
 {
-	unsigned int a;
+	unsigned int read;
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -89,7 +89,8 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-	ADC_HandleTypeDef* hadc = init_ADC1();
+	ADC_HandleTypeDef hadc;
+	init_ADC1(&hadc);
 
   /* USER CODE BEGIN 2 */
 
@@ -102,7 +103,8 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-		a = read_battery(hadc);
+		read = read_battery(&hadc);
+		printf("Valeur lue : %u",read);
   }
   /* USER CODE END 3 */
 
