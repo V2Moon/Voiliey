@@ -39,9 +39,10 @@
 #include "main.h"
 #include "stm32f1xx_hal.h"
 #include "gpio.h"
-#include "Timer_Systick.h"
 
 /* USER CODE BEGIN Includes */
+#include "Reception_RF.h"
+#include "Control_Moteur_CC.h"
 
 /* USER CODE END Includes */
 
@@ -61,6 +62,12 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+float t_periode;
+float t_cycle;
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim4;
+float vitesse;
+float rapport_cyclique;
 
 /* USER CODE END 0 */
 
@@ -91,17 +98,79 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
+	
+	
+	htim4.Instance = TIM4;
+	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
+	la définition temporel doit être assez grande pour qu'on puisse contrôler assez finement le moteur*/
+	
+	htim4.Init.Prescaler=29;
+	htim4.Init.Period=47999;
+	
+	initialiser_input_PWM_TIM(&htim4);
+	
+	//Configuration des pins pour le contrôle du moteur
+	
+	GPIO_InitTypeDef PA1;
+	PA1.Mode = GPIO_MODE_AF_PP;
+	PA1.Pin  = GPIO_PIN_1;
+	PA1.Speed = GPIO_SPEED_FREQ_HIGH;
+	
+	GPIO_InitTypeDef PA2;
+	PA2.Mode = GPIO_MODE_OUTPUT_PP ;
+	PA2.Pin = GPIO_PIN_2;
+	PA2.Speed = GPIO_SPEED_FREQ_HIGH ;
+	
+	TIM_OC_InitTypeDef tim_OC;
+		
+	
 
+	htim2.Init.Prescaler = 0;
+	htim2.Init.Period = 719;
+	htim2.Instance = TIM2;
+	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim2.Init.RepetitionCounter=0;
+
+	init_config_moteur(&PA1, &PA2, &htim2, &tim_OC);
+	
+
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-  /* USER CODE END WHILE */
+		if (t_periode != 0)
+		{
+		rapport_cyclique = t_cycle/t_periode;
 
-  /* USER CODE BEGIN 3 */
-
+		if (rapport_cyclique<0.1140)
+		{
+			set_sens_moteur(&PA2, GPIO_PIN_RESET);
+			vitesse = (-rapport_cyclique+0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+			
+		}
+		else if (rapport_cyclique>0.1160)
+		{
+			set_sens_moteur(&PA2, GPIO_PIN_SET);
+			vitesse = (+rapport_cyclique-0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+		}
+		else
+		{
+			tim_OC.Pulse = 0;
+		}
+		
+		//set_vitesse_moteur(rapport_cyclique,&tim_OC,&htim2);
+			
+			HAL_TIM_PWM_ConfigChannel(&htim2, &tim_OC, TIM_CHANNEL_2);
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+		}
+		
+		
+		
   }
   /* USER CODE END 3 */
 

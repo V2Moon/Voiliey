@@ -36,6 +36,10 @@
 #include "stm32f1xx_it.h"
 
 /* USER CODE BEGIN 0 */
+extern float t_cycle;
+extern float t_periode;
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim4;
 
 /* USER CODE END 0 */
 
@@ -81,7 +85,22 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
 
-/* USER CODE BEGIN 1 */
 
+
+/* USER CODE BEGIN 1 */
+void TIM2_IRQHandler(void)
+{
+	HAL_TIM_IRQHandler(&htim2);
+}
+void TIM4_IRQHandler(void)
+{
+	HAL_TIM_IRQHandler(&htim4);
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+	t_periode=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);
+	t_cycle=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
