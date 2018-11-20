@@ -20,16 +20,8 @@
 #include "Accelero.h"
 
 
-//Les valeurs reçues par capt
-int X=0;
-int Y=0;
-
-//Valeur max de l'angle de roulis en VOLT
-int High_Treeshold=10; //(+45°)
-int Low_Treeshold=10;	 //(-45°)
-
-//La valeur de l'angle de roulis en degrés
-int angle=0;
+int g=2.13; //Yo=1g=2.13V quand Y ne subit que la force gravitationnelle.
+int X_init=1.65; // X0=1.65V quand est au milieu.
 
 //Les pins et broches
 GPIO_TypeDef * GPIO_Accel = GPIOC;//, IN_PIN, INPUT_FLOATING};
@@ -81,9 +73,9 @@ void Init_Accelero (void)
 	
 	//Config du watchdog
 	ADC_AnalogWDGConfTypeDef ADC_WDG_Conf;
-	ADC_WDG_Conf.WatchdogMode=ADC_ANALOGWATCHDOG_ALL_REG;
-	ADC_WDG_Conf.HighThreshold=High_Treeshold;
-	ADC_WDG_Conf.LowThreshold=Low_Treeshold;
+	ADC_WDG_Conf.WatchdogMode=ADC_ANALOGWATCHDOG_ALL_REG; // En fait je pourrais ne lire qu'une seule channel !!
+	ADC_WDG_Conf.HighThreshold=(X_init-g*sin(45));
+	ADC_WDG_Conf.LowThreshold=(X_init-g*sin(-45)); 
 	ADC_WDG_Conf.ITMode=ENABLE; // Lève l'IT de l'ADC quand on sort de la zone WatchDog
 	HAL_ADC_AnalogWDGConfig(&ADC_Accel_Handle,&ADC_WDG_Conf);
 	
@@ -96,28 +88,12 @@ void Init_Accelero (void)
 	HAL_NVIC_SetPriority(ADC1_2_IRQn, Prio_Accel, Prio_Accel);
 	
 	//Configuration de l'IT de l'ADC : Insert HAL_ADC_IRQHandler() in ADC1_IRQHandler()
-	//Modifier la fonction HAL_ADC_IRQHandler pour avoir l'effet voulu quand le bon flag est levé
+	//J'ai modifié la fonction HAL_ADC_IRQHandler pour avoir l'effet voulu quand le bon flag est levé
 }
 
 
-//Paramétrer le capteur de l'accéléro
-void set_g_select (void)
-{
-//Choisi la précision du capteur
-//Pas sleep 2=1, 1=0	
-	
-}
 
-//Interruption sur l'ADC, pas besoin de getangle !
+//Paramétrage g_select du capteur de l'accéléro déjà fait (cf "schema accelero.pdf")
+//Précision du capteur : 2.5g (sensib) 480mV/g
+//Pas sleep pin2=1, pin1=0	
 
-
-//		////Return l'angle de roulis
-//	int get_angle (void)
-//	{
-//	//X=PC0 du STM32 (ADC_IN10)
-//	//Y=PC1 (ADC_IN11)
-//	return atan(X/Y);
-//	}
-
-//IT = changement des valeurs de l'angle roulis
-//Handler = regarde si >45
