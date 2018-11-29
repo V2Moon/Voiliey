@@ -20,6 +20,8 @@ nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gp
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
+nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can_ex.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
@@ -28,6 +30,10 @@ nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_fl
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+nucleo_base_cube_mx\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 nucleo_base_cube_mx\main.o: ../Inc/gpio.h
 nucleo_base_cube_mx\main.o: ../Src/Reception_RF.h
 nucleo_base_cube_mx\main.o: ../Src/Control_Moteur_CC.h
+nucleo_base_cube_mx\main.o: ../Src/check_battery.h
+nucleo_base_cube_mx\main.o: ../Src/servomoteur.h
+nucleo_base_cube_mx\main.o: ../Inc/Timer_Systick.h

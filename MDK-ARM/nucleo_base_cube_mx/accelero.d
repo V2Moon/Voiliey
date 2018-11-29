@@ -1,4 +1,4 @@
-nucleo_base_cube_mx\accelero.o: accelero.c
+nucleo_base_cube_mx\accelero.o: ..\Src\Accelero.c
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 nucleo_base_cube_mx\accelero.o: ../Inc/stm32f1xx_hal_conf.h
 nucleo_base_cube_mx\accelero.o: ../Inc/main.h
@@ -20,10 +20,16 @@ nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
+nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can_ex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-nucleo_base_cube_mx\accelero.o: accelero.h
+nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+nucleo_base_cube_mx\accelero.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+nucleo_base_cube_mx\accelero.o: ..\Src\Accelero.h
+nucleo_base_cube_mx\accelero.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

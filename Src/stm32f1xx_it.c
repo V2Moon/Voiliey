@@ -102,5 +102,10 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 	t_periode=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);
 	t_cycle=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);
 }
+
+/*void ADC1_IRQHandler(void)
+{
+	HAL_ADC_IRQHandler(&ADC_Accel_Handle);
+}*/
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -410,6 +410,31 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Reception_RF.c</FilePath>
             </File>
+            <File>
+              <FileName>Accelero.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Accelero.c</FilePath>
+            </File>
+            <File>
+              <FileName>check_battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\check_battery.c</FilePath>
+            </File>
+            <File>
+              <FileName>girouette.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\girouette.c</FilePath>
+            </File>
+            <File>
+              <FileName>servomoteur.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\servomoteur.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\UART.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1060,6 +1085,31 @@
               <FileName>Reception_RF.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\Reception_RF.c</FilePath>
+            </File>
+            <File>
+              <FileName>Accelero.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Accelero.c</FilePath>
+            </File>
+            <File>
+              <FileName>check_battery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\check_battery.c</FilePath>
+            </File>
+            <File>
+              <FileName>girouette.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\girouette.c</FilePath>
+            </File>
+            <File>
+              <FileName>servomoteur.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\servomoteur.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\UART.c</FilePath>
             </File>
           </Files>
         </Group>
