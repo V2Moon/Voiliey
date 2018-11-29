@@ -30,6 +30,8 @@ char Accel_PINY = 11;
 
 uint32_t Prio_Accel = 2;
 
+ADC_HandleTypeDef ADC_Accel_Handle;
+
 
 void Init_Accelero (void)
 {
@@ -55,7 +57,6 @@ void Init_Accelero (void)
 	ADC_Accel_Init.ScanConvMode = ADC_SCAN_DISABLE;
 			
 	//Paramètrage de la structure ADC Handle-> Utilise l'ADC_InitTypeDef
-	ADC_HandleTypeDef ADC_Accel_Handle; // AAAAAAAH je le met où ???
 	ADC_Accel_Handle.Instance= ADC1;
 	ADC_Accel_Handle.Init = ADC_Accel_Init;	
 	HAL_ADC_Init(&ADC_Accel_Handle);	

@@ -40,6 +40,7 @@ extern float t_cycle;
 extern float t_periode;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim4;
+extern ADC_HandleTypeDef ADC_Accel_Handle;
 
 /* USER CODE END 0 */
 
@@ -103,9 +104,14 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 	t_cycle=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);
 }
 
-/*void ADC1_IRQHandler(void)
+void ADC1_IRQHandler(void)
 {
 	HAL_ADC_IRQHandler(&ADC_Accel_Handle);
-}*/
+}
+
+void HAL_ADC_LevelOutOfWindowCallback (ADC_HandleTypeDef * hadc)
+{
+	//Traitement avec servomoteur
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

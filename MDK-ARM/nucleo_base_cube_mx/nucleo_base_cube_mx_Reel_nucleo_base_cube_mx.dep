@@ -1,5 +1,5 @@
 Dependencies for Project 'nucleo_base_cube_mx', Target 'Reel_nucleo_base_cube_mx': (DO NOT MODIFY !)
-F (../Src/stm32f1xx_it.c)(0x5BFFAEB9)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\stm32f1xx_it.o --omf_browse nucleo_base_cube_mx\stm32f1xx_it.crf --depend nucleo_base_cube_mx\stm32f1xx_it.d)
+F (../Src/stm32f1xx_it.c)(0x5BFFBAFA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\stm32f1xx_it.o --omf_browse nucleo_base_cube_mx\stm32f1xx_it.crf --depend nucleo_base_cube_mx\stm32f1xx_it.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5BE93C39)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5BFFAC48)
 I (../Inc/main.h)(0x5BE93C39)
@@ -97,7 +97,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5BE93C39)
-F (../Src/main.c)(0x5BFFB1B7)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\main.o --omf_browse nucleo_base_cube_mx\main.crf --depend nucleo_base_cube_mx\main.d)
+F (../Src/main.c)(0x5BFFBC3E)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\main.o --omf_browse nucleo_base_cube_mx\main.crf --depend nucleo_base_cube_mx\main.d)
 I (../Inc/main.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5BE93C39)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5BFFAC48)
@@ -135,6 +135,7 @@ I (../Src/Control_Moteur_CC.h)(0x5BFE6FBB)
 I (../Src/check_battery.h)(0x5BFE6CA0)
 I (../Src/servomoteur.h)(0x5BFFACEB)
 I (../Inc/Timer_Systick.h)(0x5BE93C39)
+I (../Src/girouette.h)(0x5BFE6BBB)
 F (..\Src\Control_Moteur_CC.c)(0x5BFE6FBB)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\control_moteur_cc.o --omf_browse nucleo_base_cube_mx\control_moteur_cc.crf --depend nucleo_base_cube_mx\control_moteur_cc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5BE93C39)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5BFFAC48)
@@ -201,7 +202,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5BE93C39)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5BE93C39)
 I (..\Src\Reception_RF.h)(0x5BFFABAC)
-F (..\Src\Accelero.c)(0x5BFFADBF)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\accelero.o --omf_browse nucleo_base_cube_mx\accelero.crf --depend nucleo_base_cube_mx\accelero.d)
+F (..\Src\Accelero.c)(0x5BFFB87C)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I.\RTE\_Reel_nucleo_base_cube_mx-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o nucleo_base_cube_mx\accelero.o --omf_browse nucleo_base_cube_mx\accelero.crf --depend nucleo_base_cube_mx\accelero.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5BE93C39)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5BFFAC48)
 I (../Inc/main.h)(0x5BE93C39)

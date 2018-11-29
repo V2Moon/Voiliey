@@ -37,3 +37,4 @@ nucleo_base_cube_mx\main.o: ../Src/Control_Moteur_CC.h
 nucleo_base_cube_mx\main.o: ../Src/check_battery.h
 nucleo_base_cube_mx\main.o: ../Src/servomoteur.h
 nucleo_base_cube_mx\main.o: ../Inc/Timer_Systick.h
+nucleo_base_cube_mx\main.o: ../Src/girouette.h

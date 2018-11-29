@@ -46,6 +46,7 @@
 #include "check_battery.h"
 #include "servomoteur.h"
 #include "Timer_Systick.h"
+#include "girouette.h"
 
 /* USER CODE END Includes */
 
@@ -169,7 +170,7 @@ int main(void)
   while (1)
   {
 		//Code pour récupérer la valeur de charge de la batterie
-		//buffalo = read_battery(&hadc);
+		buffalo = read_battery(&hadc);
 		if (t_periode != 0)
 		{
 		rapport_cyclique = t_cycle/t_periode;
