@@ -85,6 +85,10 @@ void EXTI15_10_IRQHandler(void)
 void ADC1_IRQHandler(void)
 {
 	HAL_ADC_IRQHandler(&ADC_Accel_Handle);
+	//Voir les callbacks appelés dans IRQhandler qui sont en weak 
+	// -> les redéfinir en dessous pour gérer le traitement voulu -> Ne pas modifier les bibliothèques !
+	//Modifier "HAL_ADC_LevelOutOfWindowCallback(hadc);"
+	//Il faut faire pencher le bateau dans le sens inverse ! -> Comment lire la valeur de l'ADC
 }
 
 /* USER CODE BEGIN 1 */

@@ -26,6 +26,7 @@ int X_init=1.65; // X0=1.65V quand est au milieu.
 GPIO_TypeDef * GPIO_Accel = GPIOC;//, IN_PIN, INPUT_FLOATING};
 char Accel_PINX = 10;
 char Accel_PINY = 11;
+ADC_HandleTypeDef ADC_Accel_Handle;
 
 uint32_t Prio_Accel = 2;
 
@@ -54,7 +55,6 @@ void Init_Accelero (void)
 	ADC_Accel_Init.ScanConvMode = ADC_SCAN_DISABLE;
 			
 	//Paramètrage de la structure ADC Handle-> Utilise l'ADC_InitTypeDef
-	ADC_HandleTypeDef ADC_Accel_Handle; // AAAAAAAH je le met où ???
 	ADC_Accel_Handle.Instance= ADC1;
 	ADC_Accel_Handle.Init = ADC_Accel_Init;	
 	HAL_ADC_Init(&ADC_Accel_Handle);	
@@ -89,8 +89,6 @@ void Init_Accelero (void)
 	//Configuration de l'IT de l'ADC : Insert HAL_ADC_IRQHandler() in ADC1_IRQHandler()
 	//J'ai modifié la fonction HAL_ADC_IRQHandler pour avoir l'effet voulu quand le bon flag est levé
 }
-
-
 
 //Paramétrage g_select du capteur de l'accéléro déjà fait (cf "schema accelero.pdf")
 //Précision du capteur : 2.5g (sensib) 480mV/g
