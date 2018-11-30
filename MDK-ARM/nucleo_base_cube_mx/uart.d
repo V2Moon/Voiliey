@@ -32,3 +32,4 @@ nucleo_base_cube_mx\uart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pw
 nucleo_base_cube_mx\uart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 nucleo_base_cube_mx\uart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 nucleo_base_cube_mx\uart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+nucleo_base_cube_mx\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

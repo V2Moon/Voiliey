@@ -77,7 +77,8 @@ float vitesse;
 float rapport_cyclique;
 
 //Batterie
-uint32_t buffalo;
+ADC_HandleTypeDef hadc_battery;
+UART_HandleTypeDef huart;
 
 //Servomoteur
 TIM_OC_InitTypeDef tim_OC;
@@ -117,6 +118,8 @@ int main(void)
   SystemClock_Config();
 	__ADC1_CLK_ENABLE();
 	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__USART1_CLK_ENABLE();
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -125,9 +128,8 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
-	ADC_HandleTypeDef hadc;
-	init_ADC1(&hadc);
-	
+	init_ADC1(&hadc_battery);
+	config_UART1(&huart);
 	htim4.Instance = TIM4;
 	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
 	la définition temporel doit être assez grande pour qu'on puisse contrôler assez finement le moteur*/
@@ -170,7 +172,7 @@ int main(void)
   while (1)
   {
 		//Code pour récupérer la valeur de charge de la batterie
-		buffalo = read_battery(&hadc);
+		transmit_lvl_battery(&hadc_battery, &huart);
 		if (t_periode != 0)
 		{
 		rapport_cyclique = t_cycle/t_periode;
@@ -198,7 +200,6 @@ int main(void)
 			HAL_TIM_PWM_ConfigChannel(&htim2, &tim_OC, TIM_CHANNEL_2);
 			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 		}
-		
 		
 		
   }
