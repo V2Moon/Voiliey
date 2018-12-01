@@ -8,13 +8,12 @@ Processor : STM32F103RB
 ===================================================================================*/
 
 /*=================================================================================
-Programs necessary for monitoring the battery of the project Voilier. When 
-the level of the battery is low, a message is send with RF sender.
+Programs necessary for monitoring the battery of the project Voilier.
 ===================================================================================*/
 unsigned int valeur;
 unsigned int size;
 unsigned int pourcentage;
-char data[21];
+unsigned char data[21];
 /*=================================================================================
 Initialize the GPIOC 2 in Analog input
 ===================================================================================*/
@@ -64,21 +63,13 @@ unsigned int read_battery(ADC_HandleTypeDef* hadc){
 /*=================================================================================
 Send the level of the battery
 ===================================================================================*/
-void transmit_lvl_battery(ADC_HandleTypeDef* hadc, UART_HandleTypeDef* huart){
-	
-	valeur = read_battery(hadc);
-	if(valeur >= VMAX) 
-		pourcentage = 100;
-	else if (valeur >= VMAX*0.75)
-			pourcentage = 75;
-	else if (valeur >= VMAX*0.5)
-			pourcentage = 50;
-	else if (valeur >= VMAX*0.25)
-			pourcentage = 25;	
-	else
-		pourcentage = 0;
+void transmit_lvl_battery(ADC_HandleTypeDef* hadc, UART_HandleTypeDef* huart){	
+	valeur = read_battery(hadc)/10;//ARRONDI DE LA VALEUR A LA DIZAINE
+    if (valeur > VMAX)
+        valeur = VMAX;
+    pourcentage = (valeur * 100)/VMAX;
 	size = sprintf(data,"Battery level : %u\n",pourcentage);
-	HAL_UART_Transmit(huart,(unsigned char*)data,size,10);
+	HAL_UART_Transmit(huart,data,size,10);
 }
 
 
