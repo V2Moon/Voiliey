@@ -13,7 +13,7 @@ Programs necessary for monitoring the battery of the project Voilier.
 unsigned int valeur;
 unsigned int size;
 unsigned int pourcentage;
-unsigned char data[21];
+char data[21];
 /*=================================================================================
 Initialize the GPIOC 2 in Analog input
 ===================================================================================*/
@@ -69,7 +69,9 @@ void transmit_lvl_battery(ADC_HandleTypeDef* hadc, UART_HandleTypeDef* huart){
         valeur = VMAX;
     pourcentage = (valeur * 100)/VMAX;
 	size = sprintf(data,"Battery level : %u\n",pourcentage);
-	HAL_UART_Transmit(huart,data,size,10);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET );
+	HAL_UART_Transmit(huart,(unsigned char *)data,size,10);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET );
 }
 
 

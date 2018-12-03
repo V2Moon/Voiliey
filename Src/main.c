@@ -47,6 +47,7 @@
 #include "servomoteur.h"
 #include "Timer_Systick.h"
 #include "girouette.h"
+#include "UART.h"
 
 /* USER CODE END Includes */
 
@@ -78,7 +79,8 @@ float rapport_cyclique;
 TIM_OC_InitTypeDef tim_OC_moteur;
 
 //Batterie
-uint32_t buffalo;
+ADC_HandleTypeDef hadc_battery;
+UART_HandleTypeDef huart_battery;
 
 //Servomoteur
 TIM_OC_InitTypeDef tim_OC;
@@ -120,6 +122,8 @@ int main(void)
   SystemClock_Config();
 	__ADC1_CLK_ENABLE();
 	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	 __USART1_CLK_ENABLE();
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -128,8 +132,8 @@ int main(void)
   MX_GPIO_Init();
 
   /* USER CODE BEGIN 2 */
-	ADC_HandleTypeDef hadc;
-	init_ADC1(&hadc);
+	init_ADC1(&hadc_battery);
+	config_UART1(&huart_battery);
 	
 	htim4.Instance = TIM4;
 	/*On veut une fréquence de 50Hz, vu qu'on va surveiller un signal de période 20ms. 
@@ -179,38 +183,38 @@ int main(void)
   while (1)
   {
 		//Code pour récupérer la valeur de charge de la batterie
-		//buffalo = read_battery(&hadc);
-		angle_girouette = lire_angle();
-		angle_theta= compute_angle(angle_girouette);
+		transmit_lvl_battery(&hadc_battery, &huart_battery);
+	//	angle_girouette = lire_angle();
+	//	angle_theta= compute_angle(angle_girouette);
 		
 		
-//		if (t_periode != 0)
-//		{
-//		rapport_cyclique = t_cycle/t_periode;
+		if (t_periode != 0)
+		{
+		rapport_cyclique = t_cycle/t_periode;
 
-//		if (rapport_cyclique<0.1140)
-//		{
-//			set_sens_moteur(&PA2, GPIO_PIN_RESET);
-//			vitesse = (-rapport_cyclique+0.115)/0.013;
-//			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
-//			
-//		}
-//		else if (rapport_cyclique>0.1160)
-//		{
-//			set_sens_moteur(&PA2, GPIO_PIN_SET);
-//			vitesse = (+rapport_cyclique-0.115)/0.013;
-//			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
-//		}
-//		else
-//		{
-//			tim_OC.Pulse = 0;
-//		}
-//		
-//		//set_vitesse_moteur(rapport_cyclique,&tim_OC,&htim2);
-//			
-//			HAL_TIM_PWM_ConfigChannel(&htim2, &tim_OC, TIM_CHANNEL_2);
-//			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-//		}
+		if (rapport_cyclique<0.1140)
+		{
+			set_sens_moteur(&PA2, GPIO_PIN_RESET);
+			vitesse = (-rapport_cyclique+0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+			
+		}
+		else if (rapport_cyclique>0.1160)
+		{
+			set_sens_moteur(&PA2, GPIO_PIN_SET);
+			vitesse = (+rapport_cyclique-0.115)/0.013;
+			tim_OC.Pulse = (int)((vitesse*720.0)-1.0);
+		}
+		else
+		{
+			tim_OC.Pulse = 0;
+		}
+		
+		//set_vitesse_moteur(rapport_cyclique,&tim_OC,&htim2);
+			
+			HAL_TIM_PWM_ConfigChannel(&htim2, &tim_OC, TIM_CHANNEL_2);
+			HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+		}
 		
 		
 		
