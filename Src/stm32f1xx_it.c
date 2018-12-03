@@ -34,13 +34,17 @@
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx.h"
 #include "stm32f1xx_it.h"
+#include "servomoteur.h"
 
 /* USER CODE BEGIN 0 */
 extern float t_cycle;
 extern float t_periode;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim4;
+extern TIM_HandleTypeDef htim1;
 extern ADC_HandleTypeDef ADC_Accel_Handle;
+extern TIM_OC_InitTypeDef tim_OC;
+extern float angle_theta;
 
 /* USER CODE END 0 */
 
@@ -89,6 +93,11 @@ void EXTI15_10_IRQHandler(void)
 
 
 /* USER CODE BEGIN 1 */
+void TIM1_CC_IRQHandler(void)
+{
+		HAL_TIM_IRQHandler(&htim1);
+}
+
 void TIM2_IRQHandler(void)
 {
 	HAL_TIM_IRQHandler(&htim2);
@@ -107,6 +116,11 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 void ADC1_IRQHandler(void)
 {
 	HAL_ADC_IRQHandler(&ADC_Accel_Handle);
+}
+
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef * htim)
+{
+	gerer_pwm(angle_theta, &tim_OC, &htim1);
 }
 
 void HAL_ADC_LevelOutOfWindowCallback (ADC_HandleTypeDef * hadc)

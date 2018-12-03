@@ -2,7 +2,7 @@
 #include "girouette.h"
 #include "gpio.h"
 
-void connect_GPIO ()	{
+void connect_GPIO (void)	{
 	GPIO_InitTypeDef GPIO_InitStruct;
 	
   /* GPIO Ports Clock Enable */
@@ -35,6 +35,8 @@ void connect_GPIO ()	{
 
 void interface_encoder_mode() {
 
+	
+	__HAL_RCC_TIM3_CLK_ENABLE();
 	TIM3->CCER  &= ~(0x0011) ; /*mise à 0 de CC1E et CC2E pour pouvoir écrire dans CC1S et CC2S */
 	
 	

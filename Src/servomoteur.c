@@ -2,29 +2,29 @@
 #include "servomoteur.h"
 #include "gpio.h"
 
-int compute_angle(int a_girouette) {
-
-	int theta; //angle du bras du servomoteur
-	int x = 90/105;
-	if ((a_girouette > 180+45) & (a_girouette < 180-45))  {  //vent de face
+float compute_angle(int a_girouette) {
+	int a_girouette1 = a_girouette/4;
+	float theta; //angle du bras du servomoteur
+	float x = 90.0/105.0;
+	if ((a_girouette1 > 180+45) & (a_girouette1 < 180-45))  {  //vent de face
 		
-		theta = 0 ;  //voiles rentrées
+		theta = 90.0 ;  //voiles rentrées
 		
 	}
-	else if ((a_girouette > (360-30)) & (a_girouette < 30)) { //vent arrière
+	else if ((a_girouette1 > (360-30)) & (a_girouette1 < 30)) { //vent arrière
 		
-		theta = 90; 
+		theta = 0; 
 	
 	}
-	else if ((a_girouette>(180+45)) & (a_girouette< (360-30))){ //vent de gauche
+	else if ((a_girouette1>(180+45)) & (a_girouette1< (360-30))){ //vent de gauche
 		
-		theta = (x)*a_girouette;
+		theta = x*(float)(a_girouette1-(180+45));
 		
 	}
 	
-	else if ((a_girouette>(30)) & (a_girouette< (180-45))){  //vent de droite
+	else if ((a_girouette1>(30)) & (a_girouette1< (180-45))){  //vent de droite
 		
-		theta = -(x)*a_girouette;
+		theta = x*(float)(a_girouette1);
 		
 	}
 	
@@ -37,7 +37,7 @@ int compute_angle(int a_girouette) {
 void config_PWM (GPIO_InitTypeDef *PA8,TIM_OC_InitTypeDef * tim_OC, TIM_HandleTypeDef *timer) {
 	
 	tim_OC->OCMode =TIM_OCMODE_PWM1;
-	tim_OC->Pulse =240;
+	tim_OC->Pulse =360;
 	
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	
@@ -47,13 +47,15 @@ void config_PWM (GPIO_InitTypeDef *PA8,TIM_OC_InitTypeDef * tim_OC, TIM_HandleTy
 	HAL_TIM_PWM_Init(timer);
 	HAL_TIM_PWM_ConfigChannel(timer,tim_OC,TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(timer,TIM_CHANNEL_1);
+	HAL_NVIC_EnableIRQ(TIM1_CC_IRQn);
+	HAL_TIM_PWM_Start_IT(timer, TIM_CHANNEL_1);
 	
 	
 }
 
-void gerer_pwm (int angle,TIM_OC_InitTypeDef * tim_OC, TIM_HandleTypeDef *timer)  {
+void gerer_pwm (float angle,TIM_OC_InitTypeDef * tim_OC, TIM_HandleTypeDef *timer)  {
 	
-	tim_OC->Pulse =(480*angle)/90;
+	tim_OC->Pulse =(int)(240+(120*angle)/90);
 	
 	HAL_TIM_PWM_ConfigChannel(timer,tim_OC,TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(timer,TIM_CHANNEL_1);
